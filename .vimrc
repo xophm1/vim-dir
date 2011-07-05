@@ -5,45 +5,35 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-set noautoindent
+"set noautoindent
 
-" show matching brackets
-set showmatch
+set showmatch    " show matching brackets
+set showmode     " display mode INSERT/REPLACE/...
+set showcmd      " display recognized command as you type it
 
-" display mode INSERT/REPLACE/...
-set showmode
+set magic        " changes special characters in search patterns (default)
+set esckeys      " Required to be able to use keypad keys and map missed escape sequences
 
-" display recognized command as you type it
-set showcmd
-
-" changes special characters in search patterns (default)
-set magic
-
-" Required to be able to use keypad keys and map missed escape sequences
-set esckeys
 
 set smartindent
+set paste              " Preserve indent when pasting
 
-"search is sensitive only if keyword contains an uppercase char 
+set history=1000       " Command and search pattern history
+set undolevels=1000    " use many levels of undo
+
+" search is sensitive only if keyword contains an uppercase char 
 set ignorecase
 set smartcase
+set incsearch     " incremental search
+set hlsearch      " highligh all search pattern matches
 
-set paste
-
-"autocomplete file browsing
+" autocomplete file browsing
 set wildmenu
 set wildmode=list:longest,full
 
-set nocp
+" ???
+"set nocompatible
 
-" load tag files
-set tags+=~/.vim/tags/palm
-
-setlocal omnifunc=syntaxcomplete#Complete 
-" run file with PHP CLI (CTRL-M) 
-autocmd FileType php noremap <C-M> :w!<CR>:!/usr/bin/php %<CR> 
-" PHP parser check (CTRL-L) 
-autocmd FileType php noremap <C-L> :!/usr/bin/php -l %<CR> 
 
 " Line number toggle with F12
 noremap <silent> <F12> :set number!<CR>
@@ -52,26 +42,34 @@ noremap <silent> <F12> :set number!<CR>
 "set mouse=a
 
 " Completion
+setlocal omnifunc=syntaxcomplete#Complete
 set complete=.,w,b,u,t,i,k~/.vim/syntax/php.api
-au FileType php set omnifunc=phpcomplete#CompletePHP
 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
-au Syntax php   runtime! syntax/php.vim
+" load tag files
+set tags+=~/.vim/tags/palm
+
+" highlight php syntax errors
+au Syntax php runtime! syntax/php.vim
 let php_sql_query=1                                         
 let php_htmlInStrings=1
+let php_parent_error_open = 1
+let php_parent_error_close = 1
+let php_no_shorttags = 1
 
-" incremental search
-set incsearch
+syntax on          " enable syntax highlighting
 
-" highligh all search pattern matches
-set hlsearch
+" Run php file (CTRL-M) 
+autocmd FileType php noremap <C-M> :w!<CR>:!/usr/bin/php %<CR> 
+" Run php linter (CTRL-L) 
+autocmd FileType php noremap <C-L> :!/usr/bin/php -l %<CR> 
 
 " show cursor line and column in the status line
-set ruler
+"set ruler
 
 " Keep swap files in one location
 set backupdir=~/.vim/tmp/,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -94,10 +92,6 @@ set fillchars=fold:⋯
 map zz zjzo
 set nofoldenable
 
-" PHP/HTML
-let php_htmlInStrings = 1
-let php_sql_query = 1
-
 " Encoding
 set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 
@@ -118,10 +112,6 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove<cr>
 
-" Command and search pattern history
-set history=1000
-
-set undolevels=1000 " use many levels of undo
 
 filetype on
 filetype plugin on
@@ -137,5 +127,3 @@ set shiftwidth=4
 set expandtab
 
 
-" enable syntax highlighting
-syntax on
