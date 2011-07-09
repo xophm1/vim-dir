@@ -5,6 +5,10 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+filetype on
+filetype plugin on
+filetype indent on
+
 "set noautoindent
 
 set showmatch    " show matching brackets
@@ -38,8 +42,19 @@ set wildmode=list:longest,full
 " Line number toggle with F12
 noremap <silent> <F12> :set number!<CR>
 
+" Tab mappings.
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove<cr>
+
 " support des click souris
-"set mouse=a
+set mouse=a
 
 " Completion
 setlocal omnifunc=syntaxcomplete#Complete
@@ -95,27 +110,11 @@ set nofoldenable
 " Encoding
 set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 
-" caractères invisibles
+" characters used when invisible chars are shown (with :set list)
 set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<,eol:¶,trail:·
 
 "jquery color
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery 
-
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove<cr>
-
-
-filetype on
-filetype plugin on
-filetype indent on
 
 " :W write file with sudo
 command W w !sudo tee % > /dev/null
@@ -125,5 +124,4 @@ set tabstop=4
 set softtabstop=4 
 set shiftwidth=4
 set expandtab
-
 
