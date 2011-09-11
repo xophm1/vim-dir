@@ -53,8 +53,15 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove<cr>
 
+" http://vimcasts.org/episodes/the-edit-command/
+let mapleader=','
+map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
 " support des click souris
-set mouse=a
+"set mouse=a
 
 " Completion
 setlocal omnifunc=syntaxcomplete#Complete
@@ -124,4 +131,7 @@ set tabstop=4
 set softtabstop=4 
 set shiftwidth=4
 set expandtab
+
+
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
