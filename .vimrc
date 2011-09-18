@@ -123,5 +123,8 @@ set shiftwidth=4
 set expandtab
 
 
+" plugin: ack-vim
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+" plugin: command-t
+let g:CommandTMaxHeight=5
