@@ -108,7 +108,7 @@ set encoding=utf-8
 set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 
 " characters used when invisible chars are shown (with :set list)
-set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<,eol:¶,trail:·
+"set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<,eol:¶,trail:·
 
 "jquery color
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery 
