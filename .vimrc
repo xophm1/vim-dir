@@ -105,18 +105,18 @@ set encoding=utf-8
 
 " Enable folding by indentation
 " Use: zc, zo, zC, zO, zR, zM
-set foldmethod=indent
-highlight Folded ctermfg=red
-highlight FoldColumn ctermfg=white
-set fillchars=fold:⋯
-map zz zjzo
-set nofoldenable
+"set foldmethod=indent
+"highlight Folded ctermfg=red
+"highlight FoldColumn ctermfg=white
+"set fillchars=fold:⋯
+"map zz zjzo
+"set nofoldenable
 
 " Encoding
 set statusline+=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 
 " characters used when invisible chars are shown (with :set list)
-set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<,eol:¶,trail:·
+"set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<,eol:¶,trail:·
 
 "jquery color
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery 
@@ -130,9 +130,5 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-
-" plugin: ack-vim
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
 " plugin: command-t
-let g:CommandTMaxHeight=5
+let g:CommandTMaxHeight=15
