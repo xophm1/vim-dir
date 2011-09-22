@@ -20,7 +20,8 @@ set esckeys      " Required to be able to use keypad keys and map missed escape 
 
 
 set smartindent
-set paste              " Preserve indent when pasting
+"set paste              " Preserve indent when pasting
+set pastetoggle=<F11>
 
 set history=1000       " Command and search pattern history
 set undolevels=1000    " use many levels of undo
@@ -35,14 +36,21 @@ set hlsearch      " highligh all search pattern matches
 set wildmenu
 set wildmode=list:longest,full
 
-" ???
-"set nocompatible
+" Use Vim defaults instead of Vi 
+set nocompatible
 
 
 " Line number toggle with F12
 noremap <silent> <F12> :set number!<CR>
+vnoremap <F3> y/<C-R>"<CR>
+nmap <silent> <F3> n
+nmap <silent> <S-F3> N
+imap <silent> <F3> <C-O>n
+imap <silent> <S-F3> <C-O>N
 
 let mapleader=','
+
+map <leader>s :source ~/.vimrc<cr> " Fast reloading of the .vimrc
 
 " http://vimcasts.org/episodes/the-edit-command/
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
