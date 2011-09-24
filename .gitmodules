@@ -10,6 +10,9 @@
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
+[submodule "bundle-i386/command-t"]
+	path = bundle-i386/command-t
+	url = git://github.com/wincent/Command-T.git
+[submodule "bundle-x86_64/command-t"]
+	path = bundle-x86_64/command-t
 	url = git://github.com/wincent/Command-T.git

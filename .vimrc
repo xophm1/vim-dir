@@ -2,7 +2,10 @@
 " Needed on some linux distros.
 " see http://www.adamlowe.me/2009/12/vim-destroys-all-other-rails-editors.html
 filetype off 
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
+call pathogen#infect('bundle')
+let host_arch=substitute(system('uname -i'), "\n", "", "")
+call pathogen#infect('bundle-'.host_arch)
 call pathogen#helptags()
 
 filetype on
@@ -158,3 +161,5 @@ call SetupVAM()
 " option1: au VimEnter * call SetupVAM()
 " option2: au GUIEnter * call SetupVAM()
 " See BUGS sections below [*]
+"
+
