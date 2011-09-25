@@ -16,3 +16,6 @@
 [submodule "bundle-x86_64/command-t"]
 	path = bundle-x86_64/command-t
 	url = git://github.com/wincent/Command-T.git
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
